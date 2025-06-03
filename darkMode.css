@@ -1,9 +1,12 @@
 :root {
-  --dark-bg-color: #121212;
-  --dark-bg-accent: #1a1a1a;
+  --dark-bg-color: #171717;
+  --dark-bg-accent: #1c1c1c;
+  --dark-bg-accent2: rgb(68, 67, 67);
+  --dark-bg-accent3: rgb(42, 41, 41);
   --dark-font-color: #c8c8c8;
   --dark-header-color: #fff;
   --dark-pseudocode-color: #e83e8c;
+  --dark-accent-color: #dfbb57;
 } 
 
 .section-lessons__item__link:hover,
@@ -12,35 +15,96 @@
   text-decoration: underline !important;
 }
 
+.button,
+.button--secondary,
+.button--medium,
 .button--transparent {
   background-color: var(--dark-bg-accent) !important;
   color: var(--dark-header-color) !important;
-  border: solid 3px var(--dark-font-color) !important;
+  border: solid 1px var(--dark-bg-accent2) !important;
+}
+
+.dark\:hover {
+  &:is(.dark *) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--dark-bg-accent2) !important;
+      }
+    }
+  }
+}
+
+button:hover {
+  color: var(--dark-header-color) !important;
+}
+
+.hover\:bg-gray-100 {
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--dark-bg-accent2) !important;
+    }
+  }
+}
+
+.prose {
+  :where(ul > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::marker {
+    color: var(--dark-bg-accent2);
+  }
+  :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+    color: var(--dark-header-color);
+    font-weight: 600;
+  }
+}
+
+.toc-item-active {
+    background-color: var(--dark-bg-accent) !important;
 }
 
 body,
+.bg-white,
 .navbar,
 .card-main,
 .card-block,
 .card-header,
+.bg-gray-50,
 #footer,
 .modal {
   background-color: var(--dark-bg-color) !important;
 }
 
+.button,
+.button--secondary,
+.button--medium,
 .lesson-functions,
 .course-card,
 .gradient,
 .bg-whitesmoke,
 .lesson-content__panel,
+.p-8 ,
+.bg-gray-100,
 .odin-dropdown__menu,
 .benefits {
   background-image: none !important;
   background-color: var(--dark-bg-accent) !important;
 }
 
+*, ::after, ::before, ::backdrop, ::file-selector-button,
+.border-gray-600,
+.border-gray-200 {
+  border-color: var(--dark-bg-accent2) !important;
+}
+
+.text-gray-500,
+.text-gray-600 {
+  color: var(--dark-font-color);
+}
+
 .curriculum-details-tile {
   background-color: var(--dark-bg-color) !important;
+}
+
+svg.hidden > path:nth-child(14) {
+  fill: var(--dark-font-color);
 }
 
 h1,
@@ -58,10 +122,33 @@ h6,
 .internal-link,
 .lesson-navigation__link,
 .nav-link,
+.text-gray-900,
+.text-gray-800,
+.text-notification:hover,
+.lesson-button:hover i,
+a:hover,
+.accent:hover,
 .text-notification,
 .viking-advert__brand-name,
 .viking-advert__pitch {
   color: var(--dark-header-color) !important;
+}
+
+.lesson-note {
+  background-color: var(--dark-bg-accent) !important;
+  color: var(--dark-header-color) !important;
+}
+
+.prose-a\:text-blue-800 {
+  & :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+    color: var(--color-blue-500);
+  }
+}
+
+.prose-code\:bg-gray-100 {
+  & :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+    background-color: var(--dark-bg-accent3);
+  }
 }
 
 .lesson-navigation__circle {
@@ -71,13 +158,9 @@ h6,
 p,
 ol,
 li,
-a:hover,
-.accent:hover,
 .far,
 .form__element::placeholder,
-.form__link-section__item,
-.text-notification:hover,
-.lesson-button:hover i {
+.form__link-section__item {
   color: var(--dark-font-color) !important;
 }
 
@@ -109,4 +192,14 @@ progress-circle__inner {
 .fa-map,
 .fa-arrow-alt-circle-right {
   color: var(--dark-header-color) !important;
+}
+
+.button--primary {
+  background-image: none !important;
+  background-color: var(--dark-accent-color) !important;
+  color: var(--dark-bg-accent) !important;
+}
+
+.button--primary:hover {
+  color: var(--dark-bg-color) !important;
 }
